@@ -5,3 +5,10 @@ git commit -m "message"
 git remote add <name> https://github.com/chandan0507/javascriptVariables
 git branch -M main
 git push -u <name> main
+
+=========================================================================
+
+git add folder_name/
+git commit -m "Added folder_name"
+git branch -M main
+git push -u origin main
