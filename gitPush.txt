@@ -1,3 +1,5 @@
+=> Below is starting from the repo creation
+
 git init
 gh repo create <repoName> --public
 git add .
@@ -7,6 +9,8 @@ git branch -M main
 git push -u <name> main
 
 =========================================================================
+
+=> Below is once repo is created and in the same repo should push the code(file or folder_name)
 
 git add folder_name/
 git commit -m "Added folder_name"
