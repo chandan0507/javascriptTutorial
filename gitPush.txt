@@ -1,0 +1,7 @@
+git init
+gh repo create <repoName> --public
+git add .
+git commit -m "message"
+git remote add <name> https://github.com/chandan0507/javascriptVariables
+git branch -M main
+git push -u <name> main
