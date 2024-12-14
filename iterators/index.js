@@ -43,3 +43,26 @@ for (let i = 0; i < 10; i++) {
     // Once 9 is detected below will not be executed
     console.log(`This is an odd number : ${i}`)
 }
+
+// ======================== while loop starts from below
+
+let count = 0
+while(count < 5) {
+    console.log(`Count value ${count}`)
+    count += 2
+}
+
+let countArry = 0
+
+while (countArry < obj["logginDetails"].length) {
+    console.log(`Values of the array is ${obj["logginDetails"][countArry]}`)
+    countArry += 1
+}
+
+// looping through the keys and values of the object
+
+let objCounter = 0
+while (objCounter < Object.keys(obj).length) {
+    console.log(`${Object.keys(obj)[objCounter]} contains value as ${Object.values(obj)[objCounter]}`)
+    objCounter += 1
+}
