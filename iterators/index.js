@@ -66,3 +66,7 @@ while (objCounter < Object.keys(obj).length) {
     console.log(`${Object.keys(obj)[objCounter]} contains value as ${Object.values(obj)[objCounter]}`)
     objCounter += 1
 }
+
+for (let [key, value] of Object.entries(obj)) {
+    console.log(`Key is : ${key} and its value is : ${value}`)
+}
