@@ -101,3 +101,9 @@ for (const key in greets) {
     }
     console.log(`${greets[key]}`)
 }
+
+// for of loop for object within a object
+
+for (const key in obj["address"]) {
+    console.log(`This is new obj ${key} and its ${obj["address"][key]}`)
+}
