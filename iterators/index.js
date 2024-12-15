@@ -67,6 +67,37 @@ while (objCounter < Object.keys(obj).length) {
     objCounter += 1
 }
 
+// for of loop is used to iterate through arrays and objects
+
+// to print objects first we need to get hold of the entries
+
 for (let [key, value] of Object.entries(obj)) {
     console.log(`Key is : ${key} and its value is : ${value}`)
+}
+
+for (const element of obj["logginDetails"]) {
+    console.log(element)
+}
+
+const greets = "Hello World!"
+for (const greet of greets) {
+    if (greet === " ") {
+        continue
+    }
+    console.log(greet)
+}
+
+// Mainly for objects for in loop is used than for of loop
+
+for (const key in obj) {
+    console.log(`Value for the key : ${key} is ${obj[key]}`)
+}
+
+// for in is specially designed for objects, and for of is specially designed for arrays
+
+for (const key in greets) {
+    if (key === " "){
+        continue
+    }
+    console.log(`${greets[key]}`)
 }
