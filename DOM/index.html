@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        .bg-black{
+            background-color: black;
+            color: aquamarine;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-black">
+    <div>
+        <h1 id="Chan" class="newClass">This is h1</h1>
+        <h2>
+            <p>This is p</p>
+        </h2>
+        <p class="YoBro" class="newClass">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae voluptas error earum quas quam cum ullam, adipisci eveniet sunt aperiam dolor harum enim, quaerat quod consequuntur laborum optio, nihil sint!</p>
+    </div>
+    <div>
+        <ul>
+            <li name="bro">one</li>
+            <li>two</li>
+            <li>three</li>
+            <li>four</li>
+            <li>five</li>
+        </ul>
+    </div>
+    <script>
+        // This will select the id Chan within div
+        document.querySelector('div #Chan').innerHTML = "Yo bro"
+        const check = document.querySelector('div #Chan')
+        check.style.backgroundColor = "white"
+        check.style.backgroundColor = "blue"
+        check.style.borderRadius = "10px"
+        check.style.grid = "flex"
+
+        // There are 2 types querySelector & querySelectorAll
+        const checkClass = document.querySelectorAll('.YoBro')[0]
+        checkClass.innerHTML = "Yo"
+        checkClass.style.backgroundColor = "green"
+        checkClass.style.borderRadius = "10px"
+    </script>
+    <script src="./index.js"></script>
+</body>
+</html>
