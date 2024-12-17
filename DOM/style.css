@@ -1,17 +1,14 @@
 
 .newClass {
     background-color: bisque;
-    display: flex;
     border-radius: 10px;
     padding: 5px;
     border: solid;
     border-color: black;
     color: darkblue;
-    justify-content: center;
     margin: 10px;
 }
 .This-is-another-class {
-    display: flex;
     background-color:blanchedalmond;
     color: crimson;
     padding: 5px;
@@ -19,5 +16,13 @@
     border-radius: 10px;
     border: solid;
     border-color: black;
-    justify-content: center;
+}
+.container{
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#new{
+    flex-grow: 4;
 }

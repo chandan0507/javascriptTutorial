@@ -24,3 +24,10 @@ newArry.filter( (chan) => {
         chan.setAttribute('class', 'This-is-another-class')
     }
 })
+
+const changeArry = document.querySelector('.random')
+
+changeArry.setAttribute('class', 'container')
+
+const changeGrow = document.querySelector('.grow')
+changeGrow.setAttribute('class', 'growMore')
