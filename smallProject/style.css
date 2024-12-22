@@ -1,0 +1,73 @@
+
+body{
+    background-image: url('./bgdImage.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.container{
+    margin: 50px 200px 50px 200px;
+    padding: 30px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row; 
+    border: solid;
+    border-radius: 20px;
+    opacity: 1.0;
+    font-family: "Sixtyfour Convergence", serif; 
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+    "BLED" 0,
+    "SCAN" 0,
+    "XELA" 0,
+    "YELA" 0;
+}
+.items{
+    padding-top: 5px;
+    flex-shrink: 1;
+}
+#submit{
+    border-radius: 10px;
+    margin-top: 5px;
+    border-style: none;
+    padding: 5px 15px;
+    font-family: "Sixtyfour Convergence", serif; 
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+    "BLED" 0,
+    "SCAN" 0,
+    "XELA" 0,
+    "YELA" 0;
+}
+#submit:hover{
+    background-color: rgb(6, 194, 194);
+    color: white;
+    font-family: "Sixtyfour Convergence", serif; 
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+    "BLED" 0,
+    "SCAN" 0,
+    "XELA" 0,
+    "YELA" 0;
+}
+.change{
+    border: none;
+    border-radius: 10px;
+    padding-top: 5px;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.change:hover{
+    background-color:hsl(0, 22%, 93%);
+}
+.change:active{
+    border: none;
+}
+img{
+    font-family: 'Courier New', Courier, monospace;
+}

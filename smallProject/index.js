@@ -1,0 +1,22 @@
+const obj = {
+    username : 'chandan',
+    password : 'chandan123'
+}
+
+const getUsername = document.querySelector('#username')
+const getPassword = document.querySelector('#password')
+const showPasswd = document.querySelector('#showpasswd')
+
+document.querySelector('#submit').addEventListener('click', () => {
+    if (!getUsername.value) {
+        alert('Please provide username')
+    }
+    else if (!getPassword.value) {
+        alert('Please provide password')
+    }
+    else if (getUsername.value === obj["username"] && getPassword.value === obj["password"]) {
+        alert(`Welcome ${getUsername.value}`)
+    } else {
+        alert('Sorry username not found')
+    }
+})
