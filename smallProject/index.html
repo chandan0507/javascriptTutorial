@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login Page</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kranky&family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="./bgdImage.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,7 +16,10 @@
             <label class="items" for="username">username</label>
             <input id="username" class="items change" type="text" name="username" required>
             <label class="items" for="password">password</label>
-            <input id="password" class="items change" type="password" name="password" required>
+            <div class="changeCon items">
+                <input id="password" class="items change another" type="text" name="password" required>
+                <i class="far fa-eye another" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
+            </div>
             <input class="items" type="submit" id="submit">
     </div>
     <script src="./index.js"></script>
