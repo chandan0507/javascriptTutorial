@@ -40,11 +40,12 @@ parent.insertBefore(newElement2, parent.children[4]) // 1 created new element co
 
 function createNewElement(newElement, userId, userClass, userContent, userIndex) {
     const newElementName = document.createElement(newElement)
-    const idVal = newElementName.setAttribute('id', userId)
-    const classVal = newElementName.setAttribute('class', userClass)
+    newElementName.setAttribute('id', userId)
+    newElementName.setAttribute('class', userClass)
     newElementName.innerHTML = userContent
     parent.insertBefore(newElementName, parent.children[userIndex])
 }
 
 createNewElement('h1', 'coloring', 'differ', 'This is week of month', 4)
 createNewElement('p', 'coloring', 'differ', 'This is day of the week', 6)
+createNewElement('h2', 'coloring', 'differ', 'This is hour of the day', 7)
