@@ -49,3 +49,14 @@ function createNewElement(newElement, userId, userClass, userContent, userIndex)
 createNewElement('h1', 'coloring', 'differ', 'This is week of month', 4)
 createNewElement('p', 'coloring', 'differ', 'This is day of the week', 6)
 createNewElement('h2', 'coloring', 'differ', 'This is hour of the day', 7)
+
+
+const newEle = document.createElement('li')
+newEle.appendChild(document.createTextNode('Chandan')) // Here for a created element i have added the inner text
+const secondEle = parent.children[2]
+console.log(secondEle)
+secondEle.replaceWith(newEle) // while replacing always select the existing element, then replace that with new element
+
+// Bekow is how element could be removed in js
+const existingElement = parent.children[parent.children.length - 1]
+existingElement.remove()
