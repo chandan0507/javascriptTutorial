@@ -24,8 +24,43 @@ parentElementSelect.addEventListener('click', (event) => {
                 if(getParent){
                         getParent.remove()
                 }  
-        }
+
+        } else if (event.target.value === 'input') {
+                console.log('OK')
+                        const inputElementCreate = document.createElement('input')
+                        const getParentOfInput = event.target.closest('.selector-container')
+                        inputElementCreate.setAttribute('type', 'text')
+                        inputElementCreate.setAttribute('placeholder', 'Enter the value of Option')
+                        inputElementCreate.setAttribute('class', 'end-item')
+                        inputElementCreate.setAttribute('id', 'input-element')
+                        if (!getParentOfInput.querySelector('#input-element')) {
+                                getParentOfInput.appendChild(inputElementCreate)
+
+                        }
+        } else if (event.target.value === 'click') {
+                        console.log('OK')
+                        const getInputElement = document.getElementById('input-element')
+                        if (getInputElement){
+                              getInputElement.remove()  
+                        }
+                }
 })
+
+// parentElementSelect.addEventListener('click', (event) => {
+//         console.log('OK')
+//         if (event.target.classList.contains('end-item')) {
+//                 console.log('OK')
+//                 if (event.target.value === 'input') {
+//                         console.log('OK')
+//                         const inputElementCreate = document.createElement('input')
+//                         const getParentOfInput = event.target.closest('.selector-container')
+//                         inputElementCreate.setAttribute('type', 'text')
+//                         inputElementCreate.setAttribute('placeholder', 'Enter the value of Option')
+//                         inputElementCreate.setAttribute('class', 'end-item')
+//                         getParentOfInput.appendChild(inputElementCreate)
+//                 }
+//         }
+// })
 
 submitButton.addEventListener('click', () => {
         // storing result of confirm and validating the output
