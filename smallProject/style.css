@@ -104,7 +104,7 @@ span{
 }
 .add-icon-container{
     display: flex;
-    justify-content: flex-end;
+    justify-content:right;
 }
 #add-icon{
     display: flex;
