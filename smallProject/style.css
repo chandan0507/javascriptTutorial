@@ -1,5 +1,5 @@
 
-body{
+.background{
     background-image: url('./nightSky.jpg');
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -19,7 +19,7 @@ body{
     opacity: 1.0;
     font-family: "Sixtyfour Convergence", serif; 
     font-weight: 400;
-    color: rgb(79, 70, 70);
+    color: rgb(237, 232, 232);
     font-style: normal;
     font-variation-settings:
     "BLED" 0,
@@ -80,4 +80,73 @@ img{
 #togglePassword{
     margin-right: 0px;
     padding-right: 0px;
+}
+
+
+.Home-Background{
+    background-image: url('./nightSky.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+    background-color: black;
+}
+span{
+    color: red;
+}
+.container-two{
+    border: solid;
+    border-radius: 5px;
+    padding: 5px;
+}
+.home-item{
+    padding-bottom: 10px;
+}
+.add-icon-container{
+    display: flex;
+    justify-content: flex-end;
+}
+#add-icon{
+    display: flex;
+    align-items: center;
+    background-color: blue;
+    font-size: xx-large;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+}
+#add-icon:hover{
+    background-color: white;
+    color: black;
+}
+.selector-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.select-and-option{
+    border: solid;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 20px;
+}
+.submit-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+.submit-button{
+    background-color: blue;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.submit-button:hover{
+    background-color: white;
+    color: black;
+}
+.end-item{
+    margin-left: 20px;
 }

@@ -15,7 +15,8 @@ document.querySelector('#submit').addEventListener('click', () => {
         alert('Please provide password')
     }
     else if (getUsername.value === obj["username"] && getPassword.value === obj["password"]) {
-        alert(`Welcome ${getUsername.value}`)
+        window.location.href = "./homePage.html";
+        // alert(`Welcome ${getUsername.value}`)
     } else {
         alert('Sorry username not found')
     }

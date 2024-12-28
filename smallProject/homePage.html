@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="Home-Background">
+    <div class="container-two">
+        <div class="home-item">
+            <label for="fileName">FileName<span>*</span> : </label>
+            <input type="text" name="fileName" placeholder="Enter FileName">
+        </div>
+        <div class="home-item">
+            <label for="url">WebPage URL<span>*</span> : </label>
+            <input type="text" name="url" placeholder="Enter the URL">
+        </div>
+        <div class="add-icon-container">
+            <button id="add-icon">+</button>
+        </div>
+        <div class="select-and-option">
+            <div class="selector-container">
+                <label for="selector">Choose a Selector  :   </label>
+                <select name="selector" id="selector" class="end-item">
+                    <option value="ID">ID</option>
+                    <option value="Name">Name</option>
+                    <option value="XPath">XPath</option>
+                    <option value="LinkText">LinkText</option>
+                    <option value="TagName">TagName</option>
+                    <option value="ClassName">ClassName</option>
+                </select>
+                <input type="text" name="selector-value" placeholder="Enter the value of Selector" class="end-item">
+            </div>
+            <div class="selector-container">
+                <label for="option">Choose a option  :  </label>
+                <select name="option" id="option" class="end-item">
+                    <option value="click">Click</option>
+                    <option value="input">Input</option>
+                </select>
+                <!-- <input type="text" placeholder="Enter the value of Option" class="end-item"> -->
+            </div>
+        </div>
+        <div class="submit-container">
+            <button class="submit-button">Submit</button>
+        </div>
+</body>
+</html>
