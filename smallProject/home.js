@@ -6,8 +6,13 @@ const submitButton = document.querySelector('.submit-container')
 const deleteIcon = document.querySelectorAll('.deleteIcon')
 
 addButtonClick.addEventListener('click', function () {
-        const newElement = getSelectOptionElement.cloneNode(parentElementSelect)
+        const newElement = getSelectOptionElement.cloneNode(true)
         parentElementSelect.insertBefore(newElement, submitButton)
+        const getTheInput = newElement.querySelector
+        ('#input-element')
+        if (getTheInput) {
+                getTheInput.remove()
+        }
 })
 
 // Below code works because, parentElementSelect is not effected by including new child elemets within it. That is how DOM works
@@ -25,7 +30,11 @@ parentElementSelect.addEventListener('click', (event) => {
                         getParent.remove()
                 }  
 
-        } else if (event.target.value === 'input') {
+        }
+})
+
+parentElementSelect.addEventListener('change', (event) => {
+        if (event.target.value === 'input') {
                 console.log('OK')
                         const inputElementCreate = document.createElement('input')
                         const getParentOfInput = event.target.closest('.selector-container')
@@ -38,29 +47,16 @@ parentElementSelect.addEventListener('click', (event) => {
 
                         }
         } else if (event.target.value === 'click') {
-                        console.log('OK')
-                        const getInputElement = document.getElementById('input-element')
-                        if (getInputElement){
-                              getInputElement.remove()  
+                        console.log(event.target)
+                        const getSelectElement = event.target
+                        const selectParent = getSelectElement.parentNode
+                        const sibling = selectParent.querySelector('#input-element')
+                        console.log(sibling)
+                        if (sibling){
+                                sibling.remove()  
                         }
                 }
 })
-
-// parentElementSelect.addEventListener('click', (event) => {
-//         console.log('OK')
-//         if (event.target.classList.contains('end-item')) {
-//                 console.log('OK')
-//                 if (event.target.value === 'input') {
-//                         console.log('OK')
-//                         const inputElementCreate = document.createElement('input')
-//                         const getParentOfInput = event.target.closest('.selector-container')
-//                         inputElementCreate.setAttribute('type', 'text')
-//                         inputElementCreate.setAttribute('placeholder', 'Enter the value of Option')
-//                         inputElementCreate.setAttribute('class', 'end-item')
-//                         getParentOfInput.appendChild(inputElementCreate)
-//                 }
-//         }
-// })
 
 submitButton.addEventListener('click', () => {
         // storing result of confirm and validating the output
