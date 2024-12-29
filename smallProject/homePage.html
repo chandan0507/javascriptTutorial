@@ -13,11 +13,11 @@
     <div class="container-two">
         <div class="home-item">
             <label for="fileName">FileName<span>*</span> : </label>
-            <input type="text" name="fileName" placeholder="Enter FileName">
+            <input type="text" name="fileName" placeholder="Enter FileName" class="end-item">
         </div>
         <div class="home-item">
             <label for="url">WebPage URL<span>*</span> : </label>
-            <input type="text" name="url" placeholder="Enter the URL">
+            <input type="text" name="url" placeholder="Enter the URL" class="end-item">
         </div>
         <div class="add-icon-container">
             <button id="add-icon">+</button>
@@ -38,16 +38,20 @@
                     <option value="TagName">TagName</option>
                     <option value="ClassName">ClassName</option>
                 </select>
-                <input type="text" name="selector-value" placeholder="Enter the value of Selector" class="end-item">
+                <input type="text" name="selector-value" placeholder="Enter the value of Selector" class="end-item new-item">
             </div>
             <div class="selector-container">
                 <label for="option">Choose a option<span>*</span> : </label>
                 <select name="option" id="option" class="end-item">
                     <option value="click" class="click-class">Click</option>
-                    <option value="input" class="input-class" onselect="newFunc()">Input</option>
+                    <option value="input" class="input-class">Input</option>
                 </select>
                 <!-- <input type="text" placeholder="Enter the value of Option" class="end-item"> -->
             </div>
+            <div class="selector-container">
+                <label for="description">Description<span>*</span> : </label>
+                <input type="text" name="description" placeholder="Enter Description" class="end-item new-item">
+            </div> 
         </div>
         <div class="submit-container">
             <button class="submit-button">Submit</button>

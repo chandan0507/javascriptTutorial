@@ -5,12 +5,21 @@ const addButtonClick = document.querySelector('#add-icon')
 const submitButton = document.querySelector('.submit-container')
 const deleteIcon = document.querySelectorAll('.deleteIcon')
 
+
 addButtonClick.addEventListener('click', function () {
         const newElement = getSelectOptionElement.cloneNode(true)
         parentElementSelect.insertBefore(newElement, submitButton)
+
+        // get all the input elements with class name as end-item, then set the value as none
+
+        const endItemClass = newElement.querySelectorAll('.new-item')
+        endItemClass.forEach( (eachItem) => {
+                eachItem.value = "";
+        })
         // once inserted then we are checking if the parent has any child element with id input-element, if if check this before, then there will be no element yet so willl not be able to find and delete
+        
         const getTheInput = newElement.querySelector
-        ('#input-element')
+                ('#input-element')
         if (getTheInput) {
                 getTheInput.remove()
         }
@@ -27,27 +36,27 @@ parentElementSelect.addEventListener('click', (event) => {
                 // storing the closest available parent class
                 const getParent = event.target.closest('.select-and-option')
                 // if there is any such element other than null, then it is removed
-                if(getParent){
+                if (getParent) {
                         getParent.remove()
-                }  
-        
+                }
+
                 // check if the event targetted contains a class name of submit-button
         } else if (event.target.classList.contains('submit-button')) {
-                // confirm message is stored in result
-                const result = confirm('Sure')
-                // if result is not null, then its success, else failure
-                if (result) {
-                        console.log('Success')
-                } else {
-                        console.log('Failure')
-                }
+                parentElementSelect.querySelectorAll('input').forEach((singleInputElement) => {
+                        if (singleInputElement.value) {
+                                console.log('content is there', singleInputElement.value)
+                                singleInputElement.setAttribute('class', 'end-item')
+                        } else {
+                                console.log('content is not there', singleInputElement.value)
+                                singleInputElement.setAttribute('class', 'singele-input')
+                        }
+                })
         }
-})
 
-parentElementSelect.addEventListener('change', (event) => {
-        // element targeted is select, but because which is visible option that will be treated as value
-        if (event.target.value === 'input') {
-                console.log('OK')
+        parentElementSelect.addEventListener('change', (event) => {
+                // element targeted is select, but because which is visible option that will be treated as value
+                if (event.target.value === 'input') {
+                        console.log('OK')
                         const inputElementCreate = document.createElement('input')
                         // from the targetted block, will search which is the closest parent with class as selector-container
                         const getParentOfInput = event.target.closest('.selector-container')
@@ -60,7 +69,7 @@ parentElementSelect.addEventListener('change', (event) => {
                                 getParentOfInput.appendChild(inputElementCreate)
 
                         }
-        } else if (event.target.value === 'click') {
+                } else if (event.target.value === 'click') {
                         console.log(event.target)
                         // below will get the select element from targetted event
                         const getSelectElement = event.target
@@ -70,9 +79,9 @@ parentElementSelect.addEventListener('change', (event) => {
                         const sibling = selectParent.querySelector('#input-element')
                         console.log(sibling)
                         // if such an element exist then remove it
-                        if (sibling){
-                                sibling.remove()  
+                        if (sibling) {
+                                sibling.remove()
                         }
                 }
+        })
 })
-

@@ -149,4 +149,17 @@ span{
 }
 .end-item{
     margin-left: 20px;
+    border: none;
+    border-radius: 3px;
+}
+.singele-input {
+    border: solid;
+    border-radius: 3px;
+    border-color: red;
+    margin-left: 20px;
+}
+.change-single-input {
+    border: none;
+    border-radius: 5px;
+    margin-left: 20px;
 }
