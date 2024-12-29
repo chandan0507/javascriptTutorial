@@ -4,7 +4,7 @@ const parentElementSelect = document.querySelector('.container-two')
 const addButtonClick = document.querySelector('#add-icon')
 const submitButton = document.querySelector('.submit-container')
 const deleteIcon = document.querySelectorAll('.deleteIcon')
-
+let arry = []
 
 addButtonClick.addEventListener('click', function () {
         const newElement = getSelectOptionElement.cloneNode(true)
@@ -13,11 +13,11 @@ addButtonClick.addEventListener('click', function () {
         // get all the input elements with class name as end-item, then set the value as none
 
         const endItemClass = newElement.querySelectorAll('.new-item')
-        endItemClass.forEach( (eachItem) => {
+        endItemClass.forEach((eachItem) => {
                 eachItem.value = "";
         })
         // once inserted then we are checking if the parent has any child element with id input-element, if if check this before, then there will be no element yet so willl not be able to find and delete
-        
+
         const getTheInput = newElement.querySelector
                 ('#input-element')
         if (getTheInput) {
@@ -42,46 +42,62 @@ parentElementSelect.addEventListener('click', (event) => {
 
                 // check if the event targetted contains a class name of submit-button
         } else if (event.target.classList.contains('submit-button')) {
+                arry = []
                 parentElementSelect.querySelectorAll('input').forEach((singleInputElement) => {
                         if (singleInputElement.value) {
+                                arry.push(singleInputElement.value)
+                                console.log(arry)
                                 console.log('content is there', singleInputElement.value)
-                                singleInputElement.setAttribute('class', 'end-item')
+                                // need to sent 2 classes, because new-item is used while creation of new div, because to make there border as none for that particular div
+                                singleInputElement.setAttribute('class', 'end-item new-item')
                         } else {
+                                arry.push('ThisIsEmpty')
                                 console.log('content is not there', singleInputElement.value)
-                                singleInputElement.setAttribute('class', 'singele-input')
+                                // need to sent 2 classes, because new-item is used while creation of new div, because to make there border as none for that particular div
+                                singleInputElement.setAttribute('class', 'singele-input new-item')
                         }
                 })
-        }
-
-        parentElementSelect.addEventListener('change', (event) => {
-                // element targeted is select, but because which is visible option that will be treated as value
-                if (event.target.value === 'input') {
-                        console.log('OK')
-                        const inputElementCreate = document.createElement('input')
-                        // from the targetted block, will search which is the closest parent with class as selector-container
-                        const getParentOfInput = event.target.closest('.selector-container')
-                        inputElementCreate.setAttribute('type', 'text')
-                        inputElementCreate.setAttribute('placeholder', 'Enter the value of Option')
-                        inputElementCreate.setAttribute('class', 'end-item')
-                        inputElementCreate.setAttribute('id', 'input-element')
-                        // checks if there is already any element with id input-element, only it is not there means will add
-                        if (!getParentOfInput.querySelector('#input-element')) {
-                                getParentOfInput.appendChild(inputElementCreate)
-
-                        }
-                } else if (event.target.value === 'click') {
-                        console.log(event.target)
-                        // below will get the select element from targetted event
-                        const getSelectElement = event.target
-                        // below will get the parent of targetted select element
-                        const selectParent = getSelectElement.parentNode
-                        // below will get the child element with id as input-element
-                        const sibling = selectParent.querySelector('#input-element')
-                        console.log(sibling)
-                        // if such an element exist then remove it
-                        if (sibling) {
-                                sibling.remove()
+                if (arry.includes('ThisIsEmpty')) {
+                        alert('Please Provide All Inputs !')
+                } else {
+                        const result = confirm('Are You Sure ? ')
+                        if (result){
+                                console.log('Success')
+                        } else {
+                                console.log('Failure')
                         }
                 }
-        })
+        }
+})
+
+parentElementSelect.addEventListener('change', (event) => {
+        // element targeted is select, but because which is visible option that will be treated as value
+        if (event.target.value === 'input') {
+                console.log('OK')
+                const inputElementCreate = document.createElement('input')
+                // from the targetted block, will search which is the closest parent with class as selector-container
+                const getParentOfInput = event.target.closest('.selector-container')
+                inputElementCreate.setAttribute('type', 'text')
+                inputElementCreate.setAttribute('placeholder', 'Enter the value of Option')
+                inputElementCreate.setAttribute('class', 'end-item')
+                inputElementCreate.setAttribute('id', 'input-element')
+                // checks if there is already any element with id input-element, only it is not there means will add
+                if (!getParentOfInput.querySelector('#input-element')) {
+                        getParentOfInput.appendChild(inputElementCreate)
+
+                }
+        } else if (event.target.value === 'click') {
+                console.log(event.target)
+                // below will get the select element from targetted event
+                const getSelectElement = event.target
+                // below will get the parent of targetted select element
+                const selectParent = getSelectElement.parentNode
+                // below will get the child element with id as input-element
+                const sibling = selectParent.querySelector('#input-element')
+                console.log(sibling)
+                // if such an element exist then remove it
+                if (sibling) {
+                        sibling.remove()
+                }
+        }
 })
