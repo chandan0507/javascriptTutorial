@@ -1,3 +1,5 @@
+// below is importing axios
+
 const getSelectOptionElement = document.querySelector('.select-and-option')
 // console.log(getSelectOptionElement)
 const parentElementSelect = document.querySelector('.container-two')
@@ -105,9 +107,12 @@ parentElementSelect.addEventListener('change', (event) => {
 
 let blocksOfDivArry = []
 let jsonBodyDict = {}
-let tempSelectorDic = {}
 
 function getEachElementValue() {
+        // below is to get cuurent epoch time
+        const currentEpochTime = Date.now();
+        // below is appending into the jsonBody
+        jsonBodyDict['txnId'] = currentEpochTime
         const getFileNameValue = document.querySelector('#fileNameInput').value
         // below is appending into the jsonBody
         jsonBodyDict['fileName'] = getFileNameValue
@@ -118,7 +123,10 @@ function getEachElementValue() {
         // below is appending url value
         jsonBodyDict['webUrl'] = getWebPageValue
         const getNumOfDivBlocks = document.querySelectorAll('.select-and-option')
+        // below is required to clear the blockOfDivArry on second time click of submit button
+        blocksOfDivArry = []
         for (let index = 0; index < getNumOfDivBlocks.length; index++) {
+                const tempSelectorDic = {};
                 const element = getNumOfDivBlocks[index];
                 const getselectorValue = element.querySelector('#selector').value
                 // appending values into tmp dictionary
@@ -135,15 +143,24 @@ function getEachElementValue() {
                 const getUserDescription = element.querySelector('#userDescription').value
                 // appending description into temp dictionary
                 tempSelectorDic['description'] = getUserDescription
-                if (getOperationInput === 'Input'){
-                        const getOpeartionValue = element.querySelector('#input-element').value
+                if (getOperationInput === 'input'){
+                        const getOpeartionValue = element.querySelector('#input-element').value;
                         tempSelectorDic['optionValue'] = getOpeartionValue
                 } else {
                         tempSelectorDic['optionValue'] = null
                 }
-
-                blocksOfDivArry.push(tempSelectorDic)
+                blocksOfDivArry.push(tempSelectorDic);
         }
         jsonBodyDict['actions'] = blocksOfDivArry
         console.log(jsonBodyDict)
+        apiPost(jsonBodyDict)
+}
+
+function apiPost(jsonBody) {
+        axios.post('http://10.0.1.127:8082/postUserInput', jsonBody, {headers: {'Content-Type': 'application/json'}
+        })
+          .then(response => {console.log('Response:', response.data);
+          })
+          .catch(error => {console.error('Error:', error);
+          });
 }
