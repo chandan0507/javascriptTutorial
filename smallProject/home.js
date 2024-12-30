@@ -59,7 +59,8 @@ parentElementSelect.addEventListener('click', (event) => {
                 })
                 if (arry.includes('ThisIsEmpty')) {
                         alert('Please Provide All Inputs !')
-                } else {
+                } else {                
+                        getEachElementValue()
                         const result = confirm('Are You Sure ? ')
                         if (result){
                                 console.log('Success')
@@ -101,3 +102,48 @@ parentElementSelect.addEventListener('change', (event) => {
                 }
         }
 })
+
+let blocksOfDivArry = []
+let jsonBodyDict = {}
+let tempSelectorDic = {}
+
+function getEachElementValue() {
+        const getFileNameValue = document.querySelector('#fileNameInput').value
+        // below is appending into the jsonBody
+        jsonBodyDict['fileName'] = getFileNameValue
+        const getProductNameValue = document.querySelector('#productNameInput').value
+        // below is appending product name
+        jsonBodyDict['productName'] = getProductNameValue
+        const getWebPageValue = document.querySelector('#webUrlInput').value
+        // below is appending url value
+        jsonBodyDict['webUrl'] = getWebPageValue
+        const getNumOfDivBlocks = document.querySelectorAll('.select-and-option')
+        for (let index = 0; index < getNumOfDivBlocks.length; index++) {
+                const element = getNumOfDivBlocks[index];
+                const getselectorValue = element.querySelector('#selector').value
+                // appending values into tmp dictionary
+                tempSelectorDic['selectorKey'] = getselectorValue
+                const getselectorInput = element.querySelector('#selectorUserInput').value
+                // appending selector input into tmp dictionary
+                tempSelectorDic['selectorValue'] = getselectorInput
+                const getOperationInput = element.querySelector('#option').value
+                // appending getOpeartionInput into temp dictionary
+                tempSelectorDic['optionKey'] = getOperationInput
+                const getWaitTimeInput = element.querySelector('#option-time').value
+                // appending waitTime into temp dictionary
+                tempSelectorDic['waitTime'] = getWaitTimeInput
+                const getUserDescription = element.querySelector('#userDescription').value
+                // appending description into temp dictionary
+                tempSelectorDic['description'] = getUserDescription
+                if (getOperationInput === 'Input'){
+                        const getOpeartionValue = element.querySelector('#input-element').value
+                        tempSelectorDic['optionValue'] = getOpeartionValue
+                } else {
+                        tempSelectorDic['optionValue'] = null
+                }
+
+                blocksOfDivArry.push(tempSelectorDic)
+        }
+        jsonBodyDict['actions'] = blocksOfDivArry
+        console.log(jsonBodyDict)
+}

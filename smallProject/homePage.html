@@ -13,15 +13,15 @@
     <div class="container-two">
         <div class="home-item">
             <label for="fileName">FileName<span>*</span> : </label>
-            <input type="text" name="fileName" placeholder="Enter FileName" class="end-item">
+            <input type="text" name="fileName" placeholder="Enter FileName" class="end-item" id="fileNameInput">
+        </div>
+        <div class="home-item">
+            <label for="product-name">Product Name<span>*</span> : </label>
+            <input type="text" name="product-name" placeholder="Enter the Product Name" class="end-item" id="productNameInput">
         </div>
         <div class="home-item">
             <label for="url">WebPage URL<span>*</span> : </label>
-            <input type="text" name="url" placeholder="Enter the URL" class="end-item">
-        </div>
-        <div>
-            <label for="product-name">Product Name<span>*</span> : </label>
-            <input type="text" name="product-name" placeholder="Enter the Product Name" class="end-item">
+            <input type="text" name="url" placeholder="Enter the URL" class="end-item" id="webUrlInput">
         </div>
         <div class="add-icon-container">
             <button id="add-icon">+</button>
@@ -35,14 +35,15 @@
             <div class="selector-container">
                 <label for="selector">Choose a Selector<span>*</span> : </label>
                 <select name="selector" id="selector" class="end-item">
-                    <option value="ID">ID</option>
-                    <option value="Name">Name</option>
-                    <option value="XPath">XPath</option>
-                    <option value="LinkText">LinkText</option>
-                    <option value="TagName">TagName</option>
-                    <option value="ClassName">ClassName</option>
+                    <option value="id">ID</option>
+                    <option value="name">Name</option>
+                    <option value="xpath">XPath</option>
+                    <option value="linktext">LinkText</option>
+                    <option value="tagname">TagName</option>
+                    <option value="classname">ClassName</option>
+                    <option value="cssselector">CssSelector</option>
                 </select>
-                <input type="text" name="selector-value" placeholder="Enter the value of Selector" class="end-item new-item">
+                <input type="text" name="selector-value" placeholder="Enter the value of Selector" class="end-item new-item" id="selectorUserInput">
             </div>
             <div class="selector-container">
                 <label for="option">Choose a option<span>*</span> : </label>
@@ -54,18 +55,18 @@
             </div>
             <div class="selector-container">
                 <label for="option">Choose Wait Time<span>*</span> : </label>
-                <select name="option" id="option" class="end-item">
-                    <option value="one" class="click-class">1</option>
-                    <option value="two" class="input-class">2</option>
-                    <option value="three" class="input-class">3</option>
-                    <option value="four" class="input-class">4</option>
-                    <option value="five" class="input-class">5</option>
+                <select name="option" id="option-time" class="end-item">
+                    <option value="1" class="click-class">1</option>
+                    <option value="2" class="input-class">2</option>
+                    <option value="3" class="input-class">3</option>
+                    <option value="4" class="input-class">4</option>
+                    <option value="5" class="input-class">5</option>
                 </select>
                 <!-- <input type="text" placeholder="Enter the value of Option" class="end-item"> -->
             </div>
             <div class="selector-container">
                 <label for="description">Description<span>*</span> : </label>
-                <input type="text" name="description" placeholder="Enter Description" class="end-item new-item">
+                <input type="text" name="description" placeholder="Enter Description" class="end-item new-item" id="userDescription">
             </div> 
         </div>
         <div class="submit-container">
