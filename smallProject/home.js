@@ -61,14 +61,18 @@ parentElementSelect.addEventListener('click', (event) => {
                 })
                 if (arry.includes('ThisIsEmpty')) {
                         alert('Please Provide All Inputs !')
-                } else {                
-                        getEachElementValue()
-                        const result = confirm('Are You Sure ? ')
-                        if (result){
+                } else {
+                        if (document.querySelector('#fileNameInput').value.length >= 5 && document.querySelector('#fileNameInput').value.length <= 20){
+                                const result = confirm('Are You Sure ? ')
+                                if (result){
+                                getEachElementValue()
                                 console.log('Success')
-                        } else {
+                                } else {
                                 console.log('Failure')
-                        }
+                                }
+                        } else {
+                                alert('FileName length should be between 5 to 20')
+                        }                
                 }
         }
 })
@@ -160,6 +164,9 @@ function apiPost(jsonBody) {
         axios.post('http://10.0.1.127:8082/postUserInput', jsonBody, {headers: {'Content-Type': 'application/json'}
         })
           .then(response => {console.log('Response:', response.data);
+                if(response.data['errorMessage'] === 'Success') {
+                        alert('File is added successfully')
+                }
           })
           .catch(error => {console.error('Error:', error);
           });
