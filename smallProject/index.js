@@ -1,5 +1,3 @@
-import { axios } from 'axios';
-
 const obj = {
     username : 'chandan',
     password : 'chandan123'
