@@ -166,6 +166,8 @@ function apiPost(jsonBody) {
           .then(response => {console.log('Response:', response.data);
                 if(response.data['errorMessage'] === 'Success') {
                         alert('File is added successfully')
+                } else {
+                        alert('Failed to create the file')
                 }
           })
           .catch(error => {console.error('Error:', error);
