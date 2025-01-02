@@ -29,6 +29,13 @@ addButtonClick.addEventListener('click', function () {
         if (getTheInput) {
                 getTheInput.remove()
         }
+
+        // to delete the drap and drop in new parent element
+
+        const deleteDragDrop = newElement.querySelector('.for-removal')
+        if (deleteDragDrop){
+                deleteDragDrop.remove()
+        }
 })
 
 // Below code works because, parentElementSelect is not effected by including new child elemets within it. That is how DOM works
@@ -92,10 +99,15 @@ parentElementSelect.addEventListener('change', (event) => {
                 inputElementCreate.setAttribute('placeholder', 'Enter the value of Option')
                 inputElementCreate.setAttribute('class', 'end-item')
                 inputElementCreate.setAttribute('id', 'input-element')
+
+                const parentSibling = getParentOfInput.parentNode.querySelector('.for-removal')
                 // checks if there is already any element with id input-element, only it is not there means will add
                 if (!getParentOfInput.querySelector('#input-element')) {
                         getParentOfInput.appendChild(inputElementCreate)
 
+                } 
+                if (parentSibling) {
+                        parentSibling.remove()
                 }
         } else if (event.target.value === 'click') {
                 console.log(event.target)
@@ -106,9 +118,12 @@ parentElementSelect.addEventListener('change', (event) => {
                 // below will get the child element with id as input-element
                 const sibling = selectParent.querySelector('#input-element')
                 console.log(sibling)
+                const parentSibling = selectParent.parentNode.querySelector('.for-removal')
                 // if such an element exist then remove it
                 if (sibling) {
                         sibling.remove()
+                } else if (parentSibling) {
+                        parentSibling.remove()
                 }
         } else if (event.target.value === 'drap-drop'){
                 // code here
@@ -119,9 +134,16 @@ parentElementSelect.addEventListener('change', (event) => {
                 const insertBeforeWait = parentOfInternalElements.querySelector('.wait-time-class')
                 console.log(insertBeforeWait)
                 // add the new element before wait time
-                parentOfInternalElements.insertBefore(newElementDiv, insertBeforeWait)
-                newElementDiv.firstChild.value = 'ID';
-                newElementDiv.querySelector('#selectorUserInput').value = "";
+                if (!parentOfInternalElements.querySelector('.for-removal')){
+                        parentOfInternalElements.insertBefore(newElementDiv, insertBeforeWait)
+                        newElementDiv.setAttribute('class', 'selector-container new-div-create for-removal')
+                        newElementDiv.firstChild.value = 'ID';
+                        newElementDiv.querySelector('#selectorUserInput').value = "";
+                        const getInputElement = newElementDiv.parentNode.querySelector('#input-element')
+                        if (getInputElement) {
+                        getInputElement.remove()
+                }
+                }
 
         // parentElementSelect.insertBefore(newElement, submitButton)
         }
