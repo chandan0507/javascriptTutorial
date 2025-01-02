@@ -32,7 +32,7 @@
                 <img width="30" height="30" src="https://img.icons8.com/plasticine/100/filled-trash.png"
                     alt="filled-trash" class="deleteIcon">
             </div>
-            <div class="selector-container">
+            <div class="selector-container new-div-create">
                 <label for="selector">Choose a Selector<span>*</span> : </label>
                 <select name="selector" id="selector" class="end-item">
                     <option value="id">ID</option>
@@ -50,10 +50,11 @@
                 <select name="option" id="option" class="end-item">
                     <option value="click" class="click-class">Click</option>
                     <option value="input" class="input-class">Input</option>
+                    <option value="drap-drop" class="drap-drop">DrapDrop</option>
                 </select>
                 <!-- <input type="text" placeholder="Enter the value of Option" class="end-item"> -->
             </div>
-            <div class="selector-container">
+            <div class="selector-container wait-time-class">
                 <label for="option">Choose Wait Time<span>*</span> : </label>
                 <select name="option" id="option-time" class="end-item">
                     <option value="1" class="click-class">1</option>
@@ -74,7 +75,7 @@
         </div>
     </div>
     <!-- below to load axios in html page as well -->
-    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js" defer></script>
     <script src="./home.js" defer></script>
 </body>
 

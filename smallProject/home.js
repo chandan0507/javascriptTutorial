@@ -6,6 +6,10 @@ const parentElementSelect = document.querySelector('.container-two')
 const addButtonClick = document.querySelector('#add-icon')
 const submitButton = document.querySelector('.submit-container')
 const deleteIcon = document.querySelectorAll('.deleteIcon')
+const createElementForDestSelector = document.querySelector('.new-div-create')
+
+// console.log(createElementForDestSelector)
+
 let arry = []
 
 addButtonClick.addEventListener('click', function () {
@@ -106,6 +110,20 @@ parentElementSelect.addEventListener('change', (event) => {
                 if (sibling) {
                         sibling.remove()
                 }
+        } else if (event.target.value === 'drap-drop'){
+                // code here
+                const newElementDiv = createElementForDestSelector.cloneNode(true)
+                // console.log(newElementDiv)
+                const parentOfInternalElements = event.target.closest('.select-and-option')
+                // console.log(parentOfInternalElements)
+                const insertBeforeWait = parentOfInternalElements.querySelector('.wait-time-class')
+                console.log(insertBeforeWait)
+                // add the new element before wait time
+                parentOfInternalElements.insertBefore(newElementDiv, insertBeforeWait)
+                newElementDiv.firstChild.value = 'ID';
+                newElementDiv.querySelector('#selectorUserInput').value = "";
+
+        // parentElementSelect.insertBefore(newElement, submitButton)
         }
 })
 
