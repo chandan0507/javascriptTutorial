@@ -138,7 +138,13 @@ parentElementSelect.addEventListener('change', (event) => {
                         parentOfInternalElements.insertBefore(newElementDiv, insertBeforeWait)
                         newElementDiv.setAttribute('class', 'selector-container new-div-create for-removal')
                         newElementDiv.firstChild.value = 'ID';
+                        // below is setting an id to destination newly created selector key
+                        newElementDiv.querySelector('#selector').setAttribute('id', 'dest-selector-key')
+                        console.log(newElementDiv.querySelector('#dest-selector-key').value)
                         newElementDiv.querySelector('#selectorUserInput').value = "";
+                        // below is setting the id to newly created selector value
+                        newElementDiv.querySelector('#selectorUserInput').setAttribute('id', 'dest-selector-val');
+                        console.log(newElementDiv.querySelector('#dest-selector-val'))
                         const getInputElement = newElementDiv.parentNode.querySelector('#input-element')
                         if (getInputElement) {
                         getInputElement.remove()
@@ -189,9 +195,30 @@ function getEachElementValue() {
                 tempSelectorDic['description'] = getUserDescription
                 if (getOperationInput === 'input'){
                         const getOpeartionValue = element.querySelector('#input-element').value;
-                        tempSelectorDic['optionValue'] = getOpeartionValue
+                        tempSelectorDic['optionValue'] = getOpeartionValue;
+                        // setting the value of dest key null, because input is selected
+                        tempSelectorDic['destOptionKey'] = null;
+                        tempSelectorDic['destOptionVal'] = null;
+                } else if (getOperationInput === 'drap-drop') {
+                        console.log('entered here :')
+                        // setting the key of dest selector for json
+                        const getDestOperationKey = element.querySelector('#dest-selector-key').value;
+                        console.log(getDestOperationKey)
+                        tempSelectorDic['destOptionKey'] = getDestOperationKey
+                        // setting the value of dest selector to json
+                        const getDestOperationVal = element.querySelector('#dest-selector-val').value;
+                        
+                        console.log(getDestOperationKey)
+                        tempSelectorDic['destOptionVal'] = getDestOperationVal;
+
+                        // setting the value of optionKey as null, because drag-drop is selected
+
+                        tempSelectorDic['optionValue'] = null;
                 } else {
+                        console.log('entered else :')
                         tempSelectorDic['optionValue'] = null
+                        tempSelectorDic['destOptionKey'] = null
+                        tempSelectorDic['destOptionVal'] = null
                 }
                 blocksOfDivArry.push(tempSelectorDic);
         }
